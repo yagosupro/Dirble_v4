@@ -83,8 +83,11 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         public void onClick(View v) {
             int position = getAdapterPosition();
             itemClick(position);
-
-            //Intent i=new Intent(context,Player.class);
+            System.out.println("ССЫЛКА В РЕЦЫКЛВБЮ:"+streamPosts);
+            context.stopService(new Intent(context, RadioService.class));
+            context.startService(new Intent(context,RadioService.class)
+                    .putExtra("stream",streamPosts));
+            //Intent i=new Intent(context,RadioService.class);
             //i.putExtra("stream",streamPosts);
             //context.startActivity(i);
 
@@ -93,8 +96,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
         private void itemClick(int position) {
            // System.out.println(position);
-            //streamList=posts.get(position).getStreams();
-            //streamPosts=streamList.get(0).getStream();
+            streamList=posts.get(position).getStreams();
+            streamPosts=streamList.get(0).getStream();
            // System.out.println(post.getText());
            // System.out.println(site.getText());
 

@@ -28,12 +28,13 @@ tools:context="com.chepesko.bob.dirble_v4.MainActivity">
 
         <Button
             android:id="@+id/button1"
+            android:background="@drawable/oval_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#000000"
+            android:onClick="onclickStop"
             android:gravity="center"
             android:padding="5dip"
-            android:text="Неподвижная часть"
+            android:text="STOP"
             android:textColor="#FFFFFF" />
 
     </LinearLayout>

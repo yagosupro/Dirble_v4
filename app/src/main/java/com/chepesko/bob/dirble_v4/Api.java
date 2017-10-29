@@ -15,4 +15,7 @@ import retrofit2.http.Query;
 public interface Api {
     @GET("stations?token=5241cfa04a1afdd1a1248076de")
     Call<List<Model>> getData(@Query("page") int number_page, @Query("per_page") int count_per_page);
+
+    @GET("stations/popular?token=5241cfa04a1afdd1a1248076de")
+    Call<List<Model>> getDataPopular(@Query("page") int number_page, @Query("per_page") int count_per_page);
 }

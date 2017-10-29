@@ -1,5 +1,6 @@
 package com.chepesko.bob.dirble_v4;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -36,7 +37,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         recyclerView.setAdapter(adapter);
         recyclerView.setOnClickListener(this);
 
-        Api.getData(1, 20).enqueue(new Callback<List<Model>>() {
+
+        //ALL station
+        //Api.getData(1, 20).enqueue(new Callback<List<Model>>() {
+        //Popular station
+
+        Api.getDataPopular(1, 30).enqueue(new Callback<List<Model>>() {
             @Override
             public void onResponse(Call<List<Model>> call, Response<List<Model>> response) {
                 posts.addAll(response.body());
@@ -51,7 +57,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         });
     }
-
+    public void onclickStop(View v){
+        stopService(new Intent(this, RadioService.class));
+        System.out.println("Stop");
+    }
     @Override
     public void onClick(View v) {
 
